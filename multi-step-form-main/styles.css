@@ -1,0 +1,552 @@
+/* custom fonts */
+@font-face {
+  font-family: Ubuntu;
+  src: url(/assets/fonts/Ubuntu-Regular.ttf);
+}
+@font-face {
+  font-family: Ubuntu-medium;
+  src: url(/assets/fonts/Ubuntu-Medium.ttf);
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --tc-grey-main: hsl(231, 11%, 63%);
+  --tc-blue-main: hsl(243, 94%, 21%);
+  --tc-white: white;
+  --tc-black: black;
+  --tc-red-dark: rgba(222, 3, 3, 0.965);
+  --tc-blue-light: hsl(243, 100%, 62%);
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Ubuntu;
+  background-color: hsl(217, 100%, 97%);
+}
+
+.flx-clm {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-wrapper {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background-color: var(--tc-white);
+}
+
+/* side bar */
+aside {
+  position: relative;
+  background-image: url("/assets/images/bg-sidebar-desktop.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
+  width: 30%;
+  border-radius: 0.75rem;
+}
+
+@media screen and (max-width: 800px) {
+  .main-wrapper {
+    width: 100%;
+    flex-direction: column;
+    justify-content: inherit;
+    align-items: center;
+    background-color: hsl(217, 100%, 97%)
+  }
+  aside {
+    position: relative;
+    background-image: url("/assets/images/bg-sidebar-mobile.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-height: 27vh;
+    width: 100%;
+    border-radius: 0.75rem;
+  }
+  .step-info {
+    display: none;
+  }
+  .progress-steps-container {
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .main-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem !important;
+    border-radius: 10px;
+    margin-top: -5%;
+    z-index: 999;
+    background-color: #fff;
+    max-width: 98%;
+  }
+  .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem;
+  }
+  .plan-card {
+    position: relative;
+    height: auto !important;
+    border-radius: 7px;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+}
+
+.progress-steps-container {
+  padding: 0.3rem;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  color: var(--tc-white);
+  letter-spacing: 0.05rem;
+}
+
+.step-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.step-box p {
+  color: var(--tc-grey-main);
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1.5px solid var(--tc-white);
+  text-align: center;
+}
+
+.active-step {
+  background-color: hsl(206, 94%, 87%);
+  border: 0;
+  color: var(--tc-black);
+}
+/* /side bar */
+
+/* --------- Step 1 Styles --------- */
+/* form container */
+.main-form-container {
+  padding: 3rem 2rem 3rem 0;
+  color: var(--tc-blue-main);
+  width: 75vh;
+}
+.step-detail {
+  color: var(--tc-grey-main);
+}
+form {
+  gap: 1.5rem;
+  margin-top: 7%;
+  height: 100%;
+}
+.form-step-1 {
+  gap: 1.3rem;
+}
+label {
+  margin-bottom: 2%;
+}
+
+.step-heading {
+  margin-bottom: 3%;
+}
+.input-group {
+  position: relative;
+}
+input[type="text"] {
+  height: 50px;
+  padding: 1rem;
+  font-size: 19px;
+  border-radius: 9px;
+  outline: none;
+  border: 1.5px solid var(--tc-grey-main);
+  color: var(--tc-blue-main);
+}
+
+input[type="text"]:focus {
+  /* font-family: Ubuntu-medium; */
+}
+
+.next-step-btn {
+  margin: auto;
+  margin-right: 0;
+  margin-top: 6%;
+}
+
+.next-button {
+  background-color: var(--tc-blue-main);
+  color: var(--tc-white);
+  padding: 0.9rem 1.5rem;
+  border-radius: 9px;
+  font-family: Ubuntu-medium;
+}
+
+.next-button:hover,
+.confirm-button:hover {
+  cursor: pointer;
+  background-color: hsl(221, 96%, 35%);
+}
+.confirm-button {
+  background-color: hsl(221, 96%, 35%);
+  color: var(--tc-white);
+  padding: 0.9rem 1.5rem;
+  border-radius: 9px;
+  font-family: Ubuntu-medium;
+}
+.required-message {
+  margin: auto 1px -20px auto;
+  color: var(--tc-red-dark);
+  font-family: Ubuntu;
+  visibility: hidden;
+  text-align: right;
+}
+
+input[type="text"].invalid {
+  border: 1.5px solid var(--tc-red-dark);
+}
+/* --------- /Step 1 Styles --------- */
+
+/* ---------------------------------------------------------- */
+
+/* --------- Step 2 Styles --------- */
+.plan-box-wrapper {
+  gap: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.plan-card {
+  position: relative;
+  height: 170px;
+  border-radius: 7px;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+}
+.pc-yearly {
+  gap: 0.1rem !important;
+}
+.pnb-yearly {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.form-step-2 input[type="checkbox"] {
+  appearance: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: 1.5px solid hsla(231, 11%, 63%, 0.304);
+  border-radius: 7px;
+}
+
+.form-step-2 input[type="checkbox"]:checked {
+  border: 1.5px solid var(--tc-blue-light);
+  border-radius: 7px;
+}
+
+.form-step-2 input[type="checkbox"]:hover {
+  border: 1.5px solid var(--tc-blue-light);
+  cursor: pointer;
+}
+
+.pname {
+  font-family: Ubuntu-medium;
+}
+.pcost {
+  color: var(--tc-grey-main);
+}
+.picon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.picon1 {
+  background-image: url(/assets/images/icon-arcade.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.picon2 {
+  background-image: url(/assets/images/icon-advanced.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.picon3 {
+  background-image: url(/assets/images/icon-pro.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.flx {
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 1rem;
+  gap: 1.5rem;
+}
+
+.toggle-switch {
+  position: relative;
+  height: 20px;
+  width: 40px;
+  border-radius: 50px;
+  background-color: var(--tc-blue-main);
+  padding: 0.1rem;
+  cursor: pointer;
+}
+
+.switch-btn {
+  position: absolute;
+  display: block;
+  top: 20%;
+  left: 10%;
+  height: 11.5px;
+  width: 11.5px;
+  border-radius: 50%;
+  background-color: var(--tc-white);
+  transition: 0.3s all linear;
+}
+
+.term {
+  color: var(--tc-grey-main);
+}
+.term.term-active {
+  color: var(--tc-blue-main);
+}
+
+.switch-btn.right {
+  transform: translateX(180%);
+}
+
+.next-step-btn-st2,
+.next-step-btn-st1 {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 15rem;
+  align-items: center;
+  margin-top: 10%;
+  font-family: Ubuntu-medium;
+}
+.next-step-btn-st1 {
+  justify-content: flex-end !important;
+}
+.previous-button {
+  color: var(--tc-grey-main);
+  padding: 0.9rem 1.5rem;
+}
+.previous-button:hover {
+  cursor: pointer;
+  color: inherit;
+}
+/* --------- /Step 2 Styles --------- */
+
+/* ---------------------------------------------------------- */
+
+/* --------- Step 3 Styles --------- */
+.add-ons-plan-wrapper {
+  padding: 2rem 1rem 0 0;
+}
+.form-step-3 .addons-plan-card {
+  position: relative;
+}
+
+.addons-plan-card {
+  padding-left: 5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-step-3 input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid hsla(231, 11%, 63%, 0.304);
+  border-radius: 7px;
+}
+
+.form-step-3 input[type="checkbox"]:checked {
+  border: 1.5px solid var(--tc-blue-light);
+  background-color: rgba(79, 101, 247, 0.046);
+}
+
+.form-step-3 input[type="checkbox"]:hover {
+  border: 1.5px solid var(--tc-blue-light);
+  cursor: pointer;
+  background-color: rgba(79, 101, 247, 0.046);
+}
+
+.form-step-3 input[type="checkbox"]::after {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: 1.9px solid hsla(231, 11%, 63%, 0.651);
+  border-radius: 3px;
+  margin-left: 15px;
+  margin-top: 25px;
+}
+.form-step-3 input[type="checkbox"]:checked::before {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 16px;
+  top: 25px;
+  content: "";
+  background: url(/assets/images/icon-checkmark.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  font-weight: 300;
+  background-color: var(--tc-blue-light);
+  color: var(--tc-white);
+  border-radius: 3px;
+}
+.aop-general {
+  gap: 2rem;
+}
+
+.addon-details {
+  line-height: 1.9rem;
+}
+
+.addon-details p {
+  color: var(--tc-grey-main);
+}
+p.ao-name {
+  color: hsl(243, 93%, 29%);
+  font-family: Ubuntu-medium;
+}
+p.ao-price {
+  color: hsl(243, 94%, 57%);
+}
+/* --------- /Step 3 Styles --------- */
+
+/* ---------------------------------------------------------- */
+
+/* --------- Step 4 Styles --------- */
+.final-amt-container-monthly {
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+.final-amt-chk {
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(79, 101, 247, 0.046);
+  border-radius: 3px;
+}
+
+.total-amt-container {
+  padding: 1rem;
+}
+
+.amt-details-wrap {
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.5rem;
+}
+.bb-2 {
+  border-bottom: 1px solid hsla(231, 11%, 63%, 0.383);
+  padding: 0 0 1.5rem 0;
+}
+
+.amt-details-wrap > div > p,
+.bb-2 > p {
+  font-size: 18px;
+  font-family: Ubuntu-medium;
+}
+
+.amt-details-wrap > div > span,
+.plan-details {
+  color: var(--tc-grey-main);
+}
+
+.amt-details-wrap > div > span {
+  text-decoration: underline 2px;
+  cursor: pointer;
+}
+
+.final-amt-container-monthly > div:last-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-amt-container {
+  color: var(--tc-grey-main);
+}
+
+.total-amt-container :last-child {
+  font-size: 21px;
+  font-family: Ubuntu-medium;
+  color: hsl(243, 94%, 57%);
+}
+
+.final-amt-container-yearly {
+  display: none;
+}
+/* --------- /Step 4 Styles --------- */
+
+/* ---------------------------------------------------------- */
+
+/* --------- Thankyou message Styles --------- */
+.thy-msg-container {
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  line-height: 1.6rem;
+}
+
+.thy-msg-container p {
+  text-align: center;
+  color: hsla(231, 11%, 63%, 0.827);
+  font-family: Ubuntu-medium;
+}
+/* --------- /Thankyou message Styles --------- */
+
+/* ---------------------------------------------------------- */
+
+/* form steps' display settings*/
+.form-step-hidden {
+  display: none;
+}
+.term-plan-hidden {
+  display: none;
+}
+/* /form steps' display settings */
+
+/* ****************** */
